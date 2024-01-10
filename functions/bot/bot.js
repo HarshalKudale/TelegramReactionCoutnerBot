@@ -114,9 +114,6 @@ bot.command('count_reacts', async (ctx) => {
   ctx.reply(resultString);
 });
 // Start the bot
-bot.launch({ allowedUpdates: ['message_reaction', 'message_reaction_count', 'message','animation','photo'] }).then(() => {
-  console.log('Bot is running!');
-});
 connectToMongoDB();
 
 exports.handler = async event => {
