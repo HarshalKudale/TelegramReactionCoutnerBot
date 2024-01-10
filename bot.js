@@ -81,13 +81,6 @@ bot.on('message_reaction', (ctx) => {
     updateMessage(messageId, reaction_count)
   }
 });
-
-// bot.on('message', (ctx) => {
-//   // Handle when someone sends an message
-//   if (ctx.update.message.chat.id == process.env.CHAT_ID && ctx.update.message.message_thread_id == process.env.TOPIC_ID) {
-//     createMessage(ctx.update.message.from.id, ctx.message.message_id, 0)
-//   }
-// });
 bot.on('animation', (ctx) => {
   // Handle when someone sends an animated GIF
   if (ctx.update.message.chat.id == process.env.CHAT_ID && ctx.update.message.message_thread_id == TOPIC_ID) {
@@ -111,14 +104,8 @@ bot.command('count_reacts', async (ctx) => {
   ctx.reply(resultString);
 });
 // Start the bot
+bot.launch({ allowedUpdates: ['message_reaction', 'message_reaction_count', 'message','animation','photo'] }).then(() => {
+  console.log('Bot is running!');
+});
 connectToMongoDB();
-
-exports.handler = async event => {
-  try {
-    await bot.handleUpdate(JSON.parse(event.body))
-    return { statusCode: 200, body: "" }
-  } catch (e) {
-    console.error("error in handler:", e)
-    return { statusCode: 400, body: "This endpoint is meant for bot and telegram communication" }
-  }
-}
+connectToMongoDB();
