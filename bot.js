@@ -105,13 +105,6 @@ bot.command('count_reacts', async (ctx) => {
 });
 // Start the bot
 connectToMongoDB();
-
-exports.handler = async event => {
-  try {
-    await bot.handleUpdate(JSON.parse(event.body))
-    return { statusCode: 200, body: "" }
-  } catch (e) {
-    console.error("error in handler:", e)
-    return { statusCode: 400, body: "This endpoint is meant for bot and telegram communication" }
-  }
-}
+bot.launch({ allowedUpdates: ['message_reaction', 'message_reaction_count', 'message','animation','photo'] }).then(() => {
+  console.log('Bot is running!');
+});
