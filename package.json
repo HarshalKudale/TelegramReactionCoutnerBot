@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "mongodb": "^6.3.0",
+    "telegraf": "^4.15.3"
+  }
+}
