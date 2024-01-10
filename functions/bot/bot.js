@@ -98,7 +98,7 @@ bot.command('count_reacts', async (ctx) => {
   messageWithHighestCount = reactionData.reduce((max, current) => (current.count > max.count ? current : max), reactionData[0]);
   let resultString = 'Contest Top List: \n\n';
   for (let i = 0; i < highestCountDoc.length; i++) {
-    resultString += `${highestCountDoc[i].count} --> https://t.me/c/${process.env.CHAT_ID}/${process.env.TOPIC_ID}/${highestCountDoc[i].messageId}\n\n`;
+    resultString += `${highestCountDoc[i].count} --> https://t.me/c/${2139608477}/${process.env.TOPIC_ID}/${highestCountDoc[i].messageId}\n\n`;
   }
   // ctx.reply(`Contest Top List: \n\n${highestCountDoc[0].count} --> ${topMessage}\n\n${highestCountDoc[1].count} --> ${secondMessage}\n\n${highestCountDoc[2].count} --> ${thirdMessage}`);
   ctx.reply(resultString);
